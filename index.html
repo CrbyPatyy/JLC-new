@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LJC El Nido Inn - Island Sanctuary</title>
+    <meta name="description" content="LJC El Nido Inn - Boutique beachfront sanctuary in El Nido, Palawan. Experience luxury accommodations with authentic Filipino hospitality.">
+    <!-- Fonts & Icons -->
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="no-js">
+    <!-- AWESOME JLC LOADER - FIXED WHITE BACKGROUND -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loader-container">
+            <!-- NEW JLC LOADER - FIXED OVERLAPPING -->
+            <div class="jlc-loader">
+                <div class="jlc-loader-circle"></div>
+                <div class="jlc-loader-circle-inner"></div>
+                <div class="jlc-loader-dots">
+                    <div class="jlc-loader-dot"></div>
+                    <div class="jlc-loader-dot"></div>
+                    <div class="jlc-loader-dot"></div>
+                </div>
+                <div class="jlc-letter-container">
+                    <div class="jlc-letter j">J</div>
+                    <div class="jlc-letter l">L</div>
+                    <div class="jlc-letter c">C</div>
+                </div>
+            </div>
+            <div class="loader-text">
+                Welcome to Paradise
+                <div class="loader-dots">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+            <div class="loading-progress">
+                <div class="progress-bar" id="progressBar"></div>
+            </div>
+        </div>
+    </div>
+    <!-- Page Transition -->
+    <div class="page-transition" id="pageTransition"></div>
+    <!-- Skip link for accessibility -->
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <!-- MODERN MINIMALIST NAVIGATION -->
+    <nav id="navbar" role="navigation" aria-label="Main navigation">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <img src="images/logo.png" alt="LJC El Nido Inn Logo" style="height: 65px;">
+            </a>
+            <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="Toggle navigation menu" aria-expanded="false" aria-controls="navLinks">
+                <i class="fas fa-bars" aria-hidden="true"></i>
+                <span class="sr-only">Menu</span>
+            </button>
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#sanctuary" class="active">Sanctuary</a></li>
+                <li><a href="#amenities">Amenities</a></li>
+                <li><a href="#experiences">Experiences</a></li>
+                <li><a href="#activities">Activities</a></li>
+                <li><a href="#dining">Dining</a></li>
+                <li><a href="#sustainability">Sustainability</a></li>
+                <li><a href="#testimonials">Testimonials</a></li>
+                <li><a href="#contact">Contact</a></li>
+                <li class="language-selector">
+                    <select id="language" aria-label="Select language">
+                        <option value="en">English</option>
+                        <option value="fil">Filipino</option>
+                        <option value="ja">日本語</option>
+                    </select>
+                </li>
+            </ul>
+        </div>
+    </nav>
+    <!-- Hero Section - FIXED BACKGROUND IMAGE -->
+    <section class="hero" id="main-content">
+        <div class="hero-content">
+            <h1>Your Island Sanctuary Awaits</h1>
+            <p>An intimate boutique inn nestled in the pristine paradise of El Nido, where Filipino hospitality meets untouched natural beauty.</p>
+            <a href="Booking/booking.html" class="btn">Book Now</a>
+        </div>
+    </section>
+    <!-- Island Sanctuary Section -->
+    <section id="sanctuary" class="sanctuary">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Luxury Accommodations</span>
+                <h2>Your Island Sanctuary</h2>
+                <p>Experience intimate accommodations with authentic Filipino details: hand-carved wooden accents, woven abaca textiles, and private balconies overlooking the ocean.</p>
+            </div>
+            <!-- Room Slider Container -->
+            <div class="rooms-slider-container">
+                <div class="rooms-slider" id="roomsSlider">
+                    <!-- Rooms will be dynamically loaded here -->
+                </div>
+                <!-- Slider Controls -->
+                <div class="slider-controls">
+                    <button class="slider-btn prev-btn" id="prevBtn" aria-label="Previous rooms">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="slider-dots" id="sliderDots">
+                        <!-- Dots will be dynamically generated -->
+                    </div>
+                    <button class="slider-btn next-btn" id="nextBtn" aria-label="Next rooms">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Parallax Section -->
+    <div class="parallax-section" style="background-image: url('https://images.unsplash.com/photo-1587102492933-8fa2f2f230f6?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1032');">
+        <div class="parallax-overlay"></div>
+        <div class="parallax-content">
+            <h2>Experience Paradise Like Never Before</h2>
+            <p>Discover the hidden gems of El Nido with our curated experiences</p>
+        </div>
+    </div>
+    <!-- Room Amenities Section -->
+    <section id="amenities" class="amenities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Premium Comfort</span>
+                <h2>Room Amenities</h2>
+                <p>Every room at LJC El Nido Inn is thoughtfully designed with your comfort in mind, featuring premium amenities for a truly relaxing stay.</p>
+            </div>
+            <div class="amenities-section">
+                <div class="amenities-grid">
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-coffee"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>Complimentary Daily Breakfast</h4>
+                            <p>Start your day with a delicious Filipino breakfast featuring local ingredients</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-snowflake"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>Air Conditioned Rooms</h4>
+                            <p>Stay cool and comfortable with individually controlled air conditioning</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-shower"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>Private Bathroom</h4>
+                            <p>Enjoy your own private bathroom with hot & cold shower and premium toiletries</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-wifi"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>High-Speed WiFi</h4>
+                            <p>Stay connected with complimentary high-speed internet access</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-tv"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>Netflix Entertainment</h4>
+                            <p>Relax with your favorite shows and movies on our Smart TVs with Netflix</p>
+                        </div>
+                    </div>
+                    <div class="amenity-item">
+                        <div class="amenity-icon">
+                            <i class="fas fa-concierge-bell"></i>
+                        </div>
+                        <div class="amenity-content">
+                            <h4>Daily Housekeeping</h4>
+                            <p>Enjoy daily housekeeping service to keep your room pristine</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- El Nido Experiences Section -->
+    <section id="experiences" class="experiences">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Island Adventures</span>
+                <h2>El Nido Experiences</h2>
+                <p>Discover the 47 islands and lagoons of El Nido with our interactive island explorer and curated tours.</p>
+            </div>
+            <!-- Tour Explorer Slider -->
+            <div class="tours-slider-container">
+                <div class="tours-slider" id="toursSlider">
+                    <!-- Tour A - Lagoons & Beaches -->
+                    <div class="explorer-container">
+                        <div class="explorer-header">
+                            <h3>🏝️ Tour A – Lagoons & Beaches</h3>
+                            <div class="tide-info">
+                                <div class="tide-indicator"></div>
+                                <span>High Tide: 2:15 PM</span>
+                            </div>
+                        </div>
+                        <div class="explorer-content">
+                            <div class="map-container">
+                                <div class="map-islands">
+                                    <div class="island" style="top: 30%; left: 40%;" data-island="big-lagoon" tabindex="0"></div>
+                                    <div class="island" style="top: 50%; left: 60%;" data-island="small-lagoon" tabindex="0"></div>
+                                    <div class="island" style="top: 70%; left: 30%;" data-island="secret-lagoon" tabindex="0"></div>
+                                    <div class="island" style="top: 40%; left: 70%;" data-island="shimizu-island" tabindex="0"></div>
+                                    <div class="island" style="top: 60%; left: 50%;" data-island="seven-commando" tabindex="0"></div>
+                                </div>
+                            </div>
+                            <div class="island-info">
+                                <h4>Big Lagoon</h4>
+                                <div class="island-description">
+                                    <p>Enter a majestic lagoon surrounded by towering limestone cliffs. The calm, turquoise waters are perfect for kayaking and swimming.</p>
+                                </div>
+                                <div class="island-features">
+                                    <div class="island-feature">Kayaking</div>
+                                    <div class="island-feature">Swimming</div>
+                                    <div class="island-feature">Photography</div>
+                                </div>
+                                <p><strong>Best Time to Visit:</strong> Morning (9 AM - 12 PM)</p>
+                                <p><strong>Tour Route:</strong> Tour A</p>
+                                <a href="#" class="btn btn-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour B - Caves & Islands -->
+                    <div class="explorer-container">
+                        <div class="explorer-header">
+                            <h3>🌅 Tour B – Caves & Islands</h3>
+                            <div class="tide-info">
+                                <div class="tide-indicator"></div>
+                                <span>Known for caves, snorkeling, and unique rock formations</span>
+                            </div>
+                        </div>
+                        <div class="explorer-content">
+                            <div class="map-container">
+                                <div class="map-islands">
+                                    <div class="island" style="top: 25%; left: 35%;" data-island="snake-island" tabindex="0"></div>
+                                    <div class="island" style="top: 45%; left: 65%;" data-island="pinagbuyutan" tabindex="0"></div>
+                                    <div class="island" style="top: 65%; left: 25%;" data-island="cudugnon-cave" tabindex="0"></div>
+                                    <div class="island" style="top: 35%; left: 75%;" data-island="cathedral-cave" tabindex="0"></div>
+                                    <div class="island" style="top: 75%; left: 55%;" data-island="entalula-beach" tabindex="0"></div>
+                                </div>
+                            </div>
+                            <div class="island-info">
+                                <h4>Snake Island</h4>
+                                <div class="island-description">
+                                    <p>A long sandbar connecting two islands, creating a unique natural phenomenon perfect for walking and photography.</p>
+                                </div>
+                                <div class="island-features">
+                                    <div class="island-feature">Sandbar</div>
+                                    <div class="island-feature">Walking</div>
+                                    <div class="island-feature">Photography</div>
+                                </div>
+                                <p><strong>Best Time to Visit:</strong> Low tide</p>
+                                <p><strong>Tour Route:</strong> Tour B</p>
+                                <a href="#" class="btn btn-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour C - Hidden Beaches & Shrines -->
+                    <div class="explorer-container">
+                        <div class="explorer-header">
+                            <h3>🗿 Tour C – Hidden Beaches & Shrines</h3>
+                            <div class="tide-info">
+                                <div class="tide-indicator"></div>
+                                <span>Famous for dramatic cliffs, secret beaches, and snorkeling</span>
+                            </div>
+                        </div>
+                        <div class="explorer-content">
+                            <div class="map-container">
+                                <div class="map-islands">
+                                    <div class="island" style="top: 20%; left: 45%;" data-island="helicopter-island" tabindex="0"></div>
+                                    <div class="island" style="top: 50%; left: 35%;" data-island="matinloc-shrine" tabindex="0"></div>
+                                    <div class="island" style="top: 70%; left: 65%;" data-island="secret-beach" tabindex="0"></div>
+                                    <div class="island" style="top: 40%; left: 25%;" data-island="hidden-beach" tabindex="0"></div>
+                                    <div class="island" style="top: 60%; left: 75%;" data-island="star-beach" tabindex="0"></div>
+                                </div>
+                            </div>
+                            <div class="island-info">
+                                <h4>Helicopter Island</h4>
+                                <div class="island-description">
+                                    <p>Shaped like a helicopter, this island offers excellent snorkeling opportunities with vibrant coral reefs and diverse marine life.</p>
+                                </div>
+                                <div class="island-features">
+                                    <div class="island-feature">Snorkeling</div>
+                                    <div class="island-feature">Unique Shape</div>
+                                    <div class="island-feature">Marine Life</div>
+                                </div>
+                                <p><strong>Best Time to Visit:</strong> Morning to Afternoon</p>
+                                <p><strong>Tour Route:</strong> Tour C</p>
+                                <a href="#" class="btn btn-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Tour D - Relaxed & Less Crowded -->
+                    <div class="explorer-container">
+                        <div class="explorer-header">
+                            <h3>🌤 Tour D – Relaxed & Less Crowded</h3>
+                            <div class="tide-info">
+                                <div class="tide-indicator"></div>
+                                <span>Focuses on quiet lagoons and beautiful beaches near Cadlao Island</span>
+                            </div>
+                        </div>
+                        <div class="explorer-content">
+                            <div class="map-container">
+                                <div class="map-islands">
+                                    <div class="island" style="top: 30%; left: 40%;" data-island="small-lagoon" tabindex="0"></div>
+                                    <div class="island" style="top: 50%; left: 60%;" data-island="cadlao-lagoon" tabindex="0"></div>
+                                    <div class="island" style="top: 70%; left: 30%;" data-island="paradise-beach" tabindex="0"></div>
+                                    <div class="island" style="top: 40%; left: 70%;" data-island="pasandigan-beach" tabindex="0"></div>
+                                    <div class="island" style="top: 60%; left: 50%;" data-island="natnat-beach" tabindex="0"></div>
+                                </div>
+                            </div>
+                            <div class="island-info">
+                                <h4>Small Lagoon</h4>
+                                <div class="island-description">
+                                    <p>Perfect for kayaking and swimming in calm turquoise water, surrounded by majestic limestone cliffs.</p>
+                                </div>
+                                <div class="island-features">
+                                    <div class="island-feature">Kayaking</div>
+                                    <div class="island-feature">Swimming</div>
+                                    <div class="island-feature">Calm Waters</div>
+                                </div>
+                                <p><strong>Best Time to Visit:</strong> Morning (9 AM - 12 PM)</p>
+                                <p><strong>Tour Route:</strong> Tour D</p>
+                                <a href="#" class="btn btn-dark">Learn More</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- Tour Slider Controls -->
+                <div class="tour-slider-controls">
+                    <button class="tour-slider-btn prev-tour-btn" id="prevTourBtn" aria-label="Previous tour">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <div class="tour-slider-dots" id="tourSliderDots">
+                        <!-- Dots will be dynamically generated -->
+                    </div>
+                    <button class="tour-slider-btn next-tour-btn" id="nextTourBtn" aria-label="Next tour">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Activities Section -->
+    <section id="activities" class="activities">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Things to Do</span>
+                <h2>Island Activities</h2>
+                <p>From thrilling adventures to serene relaxation, discover the diverse experiences that await in El Nido.</p>
+            </div>
+            <div class="activities-grid">
+                <!-- Activity 1 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://images.unsplash.com/photo-1602587703181-a881ceb3abaa?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1389" alt="Island hopping tour in El Nido" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Island Hopping Tours</h3>
+                        <p>Explore the famous island hopping routes (A, B, C, D) to discover hidden lagoons, secret beaches, and stunning viewpoints.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+                <!-- Activity 2 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://images.unsplash.com/photo-1601000984289-556777587643?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=870" alt="Beach relaxation in El Nido" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Beach Relaxation</h3>
+                        <p>Unwind on El Nido's most beautiful beaches including Nacpan, Lio, and Las Cabanas with their pristine white sand and turquoise waters.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+                <!-- Activity 3 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://images.unsplash.com/photo-1544551763-46a013bb70d5?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Snorkeling in El Nido's vibrant coral reefs" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Snorkeling & Diving</h3>
+                        <p>Discover vibrant coral reefs and diverse marine life in some of the world's most biodiverse waters.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+                <!-- Activity 4 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://images.unsplash.com/photo-1746260948448-d741c5838c16?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=1374" alt="Kayaking through hidden lagoons" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Kayaking Adventures</h3>
+                        <p>Paddle through hidden lagoons and mangrove forests to discover secluded spots inaccessible by boat.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+                <!-- Activity 5 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://images.unsplash.com/photo-1602588288092-41a0e8d7f2ec?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=774" alt="Sunset viewing in El Nido" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>Sunset Viewing</h3>
+                        <p>Witness spectacular sunsets from Las Cabanas Beach or our rooftop terrace with a refreshing cocktail in hand.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+                <!-- Activity 6 -->
+                <div class="activity-card">
+                    <div class="activity-image">
+                        <img data-src="https://dynamic-media-cdn.tripadvisor.com/media/photo-o/27/5e/1d/47/sunsets-are-always-packed.jpg?w=1000&h=-1&s=1" alt="El Nido nightlife with fire dancers" loading="lazy" class="image-loading">
+                    </div>
+                    <div class="activity-content">
+                        <h3>El Nido Nightlife</h3>
+                        <p>Experience the vibrant local nightlife with beachfront bars, fire dancers, and live music just steps from our inn.</p>
+                        <a href="#" class="btn btn-dark">Learn More</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Local Table Section -->
+    <section id="dining" class="dining">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Culinary Delights</span>
+                <h2>Local Table</h2>
+                <p>Farm-to-table dining experience highlighting fresh seafood and local Palawan ingredients.</p>
+            </div>
+            <div class="dining-section">
+                <div class="dining-hero">
+                    <h3>Authentic Filipino Flavors</h3>
+                </div>
+                <div class="dining-content">
+                    <p>Our culinary philosophy is simple: source the freshest ingredients from local fishermen and farmers, and let the natural flavors shine. Our chefs combine traditional Filipino recipes with contemporary techniques to create unforgettable dining experiences.</p>
+                    <div class="dish-grid">
+                        <!-- Dish 1 -->
+                        <div class="dish-card">
+                            <div class="dish-image">
+                                <img data-src="https://baycatch.ph/cdn/shop/files/kinilaw-na-tanigue-sku.jpg?v=1698653261&width=600" alt="Kinilaw na Tanigue - Spanish mackerel ceviche" loading="lazy" class="image-loading">
+                            </div>
+                            <h4>Kinilaw na Tanigue</h4>
+                            <p>Fresh Spanish mackerel ceviche with coconut vinegar, ginger, and chili</p>
+                        </div>
+                        <!-- Dish 2 -->
+                        <div class="dish-card">
+                            <div class="dish-image">
+                                <img data-src="https://images.unsplash.com/photo-1603360946369-dc9bb6258143?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=800&q=80" alt="Chicken Inasal - Grilled chicken marinated in calamansi" loading="lazy" class="image-loading">
+                            </div>
+                            <h4>Chicken Inasal</h4>
+                            <p>Grilled chicken marinated in calamansi, garlic, and annatto</p>
+                        </div>
+                        <!-- Dish 3 -->
+                        <div class="dish-card">
+                            <div class="dish-image">
+                                <img data-src="https://www.cookmunitybyajinomoto.com/wp-content/uploads/2021/07/ADOBONG-PUSIT-scaled.jpeg" alt="Adobong Pusit - Squid adobo" loading="lazy" class="image-loading">
+                            </div>
+                            <h4>Adobong Pusit</h4>
+                            <p>Squid adobo with soy sauce, vinegar, and garlic</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Sustainable Paradise Section -->
+    <section id="sustainability" class="sustainability">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Eco-Friendly Practices</span>
+                <h2>Sustainable Paradise</h2>
+                <p>We are committed to protecting El Nido's pristine environment through responsible tourism practices.</p>
+            </div>
+            <div class="sustainable-grid">
+                <!-- Initiative 1 -->
+                <div class="sustainable-card">
+                    <div class="sustainable-icon">♻️</div>
+                    <h3>Zero Single-Use Plastics</h3>
+                    <p>We've eliminated all single-use plastics from our operations, using bamboo and other sustainable alternatives.</p>
+                </div>
+                <!-- Initiative 2 -->
+                <div class="sustainable-card">
+                    <div class="sustainable-icon">🐠</div>
+                    <h3>Coral Reef Protection</h3>
+                    <p>We partner with local marine conservation organizations to protect and restore El Nido's coral reefs.</p>
+                </div>
+                <!-- Initiative 3 -->
+                <div class="sustainable-card">
+                    <div class="sustainable-icon">🤝</div>
+                    <h3>Community Partnerships</h3>
+                    <p>We source ingredients from local fishermen and farmers, supporting the El Nido community.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="testimonials">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Guest Experiences</span>
+                <h2>What Our Guests Say</h2>
+                <p>Read about the unforgettable experiences of our guests at LJC El Nido Inn.</p>
+            </div>
+            <div class="testimonial-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-content">
+                        "I recently had the pleasure of visiting the beautiful El Nido, Palawan again—this time with my whole family—and I couldn't be happier with the Juls Inn/LJC El Nido Inn and the tour package I chose. From the moment we arrived, everything was well-organized, relaxing, and full of breathtaking moments. They even let us cook for free! Most especially, Ms. Aiza was very hands-on. Thank you, Ms. Aiza and the staff of LJC—you were all super accommodating!"
+                    </div>
+                    <div class="testimonial-author">
+                        <div class="author-avatar">
+                            <img data-src="https://images.unsplash.com/photo-1494790108755-2616b612b786?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="Sarah Johnson" loading="lazy" class="image-loading">
+                        </div>
+                        <div class="author-info">
+                            <h4>Sarah Johnson</h4>
+                            <p></p>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-nav">
+                    <div class="testimonial-dot active"></div>
+                    <div class="testimonial-dot"></div>
+                    <div class="testimonial-dot"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-subtitle">Get In Touch</span>
+                <h2>Contact Us</h2>
+                <p>We'd love to hear from you and help plan your perfect El Nido getaway.</p>
+            </div>
+            <div class="contact-section">
+                <div class="contact-grid">
+                    <div class="contact-info">
+                        <h3>Contact Information</h3>
+                        <div class="contact-details">
+                            <div class="contact-detail">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Location</h4>
+                                    <p>Barangay Corong Corong, El Nido, Palawan, Philippines</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Phone</h4>
+                                    <p>+63 949 1974 846</p>
+                                </div>
+                            </div>
+                            <div class="contact-detail">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-detail-content">
+                                    <h4>Email</h4>
+                                    <p>julztravelpalawan2022@gmail.com</p>
+                                </div>
+                            </div>
+                        </div>
+                        <h3>Follow Us</h3>
+                        <div class="social-links">
+                            <a href="#" class="social-link" aria-label="Visit our Instagram">
+                                <i class="fab fa-instagram"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Visit our Facebook">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                            <a href="#" class="social-link" aria-label="Visit our TripAdvisor">
+                                <i class="fab fa-tripadvisor"></i>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="contact-form">
+                        <h3>Send Us a Message</h3>
+                        <form id="contactForm">
+                            <div class="form-group">
+                                <input type="text" id="name" placeholder="Your Name" required>
+                            </div>
+                            <div class="form-group">
+                                <input type="email" id="email" placeholder="Your Email" required>
+                            </div>
+                            <div class="form-group">
+                                <textarea id="message" placeholder="Your Message" rows="5" required></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-accent">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Enhanced Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <!-- About Column -->
+                <div class="footer-column">
+                    <h4>LJC El Nido Inn</h4>
+                    <p>Your boutique beachfront sanctuary in El Nido, Palawan. Experience luxury accommodations with authentic Filipino hospitality amidst pristine natural beauty.</p>
+                    <div class="footer-badges">
+                        <div class="badge">
+                            <i class="fas fa-star"></i>
+                            <span>TripAdvisor Excellence</span>
+                        </div>
+                        <div class="badge">
+                            <i class="fas fa-leaf"></i>
+                            <span>Eco-Certified</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Quick Links Column -->
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul class="footer-links">
+                        <li><a href="#sanctuary">Rooms & Suites</a></li>
+                        <li><a href="#amenities">Amenities</a></li>
+                        <li><a href="#activities">Activities</a></li>
+                        <li><a href="#dining">Dining</a></li>
+                        <li><a href="#testimonials">Reviews</a></li>
+                        <li><a href="#contact">Contact Us</a></li>
+                    </ul>
+                </div>
+                <!-- Contact Column -->
+                <div class="footer-column">
+                    <h4>Contact Info</h4>
+                    <div class="contact-info">
+                        <div class="contact-item">
+                            <i class="fas fa-map-marker-alt"></i>
+                            <span>Barangay Corong Corong, El Nido, Palawan, Philippines</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-phone"></i>
+                            <span>+63 949 1974 846</span>
+                        </div>
+                        <div class="contact-item">
+                            <i class="fas fa-envelope"></i>
+                            <span>julztravelpalawan2022@gmail.com</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Newsletter Column -->
+                <div class="footer-column">
+                    <h4>Newsletter</h4>
+                    <p>Subscribe for exclusive offers and updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit" class="btn-newsletter">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <!-- Bottom Section -->
+            <div class="footer-bottom">
+                <div class="footer-bottom-content">
+                    <div class="copyright">
+                        <p>&copy; 2024 LJC El Nido Inn. All rights reserved.</p>
+                    </div>
+                    <div class="footer-links-bottom">
+                        <a href="#">Privacy Policy</a>
+                        <a href="#">Terms of Service</a>
+                        <a href="#">Sitemap</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
