@@ -838,14 +838,11 @@ const observerOptions = {
     rootMargin: '0px',
     threshold: 0.1
 };
-const observer = new IntersectionObserver((entries) => {
+const observer = new IntersectionObserver((entries, observer) => {
     entries.forEach(entry => {
         if (entry.isIntersecting) {
             entry.target.classList.add('visible');
-            // Add section visibility for mobile
-            if (entry.target.tagName === 'SECTION') {
-                entry.target.classList.add('visible');
-            }
+            observer.unobserve(entry.target); // ✅ Prevent infinite triggering
         }
     });
 }, observerOptions);
@@ -934,3 +931,12 @@ if (window.innerWidth <= 768) {
         document.documentElement.style.setProperty('--animation-duration', '0.1s');
     }
 }
+// ---- FIX: Prevent Contact Us section from jittering or moving on its own ----
+window.addEventListener('DOMContentLoaded', () => {
+    const contactSection = document.querySelector('#contact');
+    if (contactSection) {
+        contactSection.style.position = 'relative';
+        contactSection.style.overflow = 'hidden';
+        contactSection.style.willChange = 'auto';
+    }
+});
