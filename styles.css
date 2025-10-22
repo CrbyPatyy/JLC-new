@@ -21,6 +21,12 @@
     --glass-blur: blur(12px);
     --glass-blur-light: blur(8px);
 }
+
+@media (max-width: 768px) {
+  html {
+    scroll-behavior: auto !important;
+  }
+}
 * {
     margin: 0;
     padding: 0;
@@ -2280,3 +2286,4 @@ img.loaded {
 .explorer-container + .explorer-container {
     margin-left: 0 !important;
 }
+
