@@ -934,11 +934,3 @@ if (window.innerWidth <= 768) {
         document.documentElement.style.setProperty('--animation-duration', '0.1s');
     }
 }
-// Prevent page jumping when mobile keyboard opens
-window.visualViewport?.addEventListener('resize', () => {
-  if (window.visualViewport.height < window.innerHeight) {
-    document.body.style.position = 'fixed';
-  } else {
-    document.body.style.position = '';
-  }
-});
