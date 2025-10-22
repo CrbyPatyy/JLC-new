@@ -290,8 +290,16 @@ function initRoomSlider() {
     }
 
     function getPositionX(e) {
-        return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
+    if (e.type.includes('mouse')) {
+        return e.pageX;
+    } else if (e.touches && e.touches.length > 0) {
+        return e.touches[0].clientX;
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+        return e.changedTouches[0].clientX;
+    } else {
+        return 0; // fallback to avoid crash
     }
+}
 
     function animation() {
         setSliderPosition();
@@ -337,18 +345,16 @@ function initTourSlider() {
     const prevBtn = document.getElementById('prevTourBtn');
     const nextBtn = document.getElementById('nextTourBtn');
     const dotsContainer = document.getElementById('tourSliderDots');
+    
     if (!slider || !prevBtn || !nextBtn || !dotsContainer) return;
+    
     let currentTourIndex = 0;
     let isDragging = false;
     let startPos = 0;
-    let currentTranslate = 0;
-    let prevTranslate = 0;
-    let animationID;
-
-    // Get number of tours
+    let startTime = 0;
+    
     const tourCount = document.querySelectorAll('.explorer-container').length;
-
-    // Create slider dots
+    
     function createDots() {
         dotsContainer.innerHTML = '';
         for (let i = 0; i < tourCount; i++) {
@@ -359,124 +365,119 @@ function initTourSlider() {
             dotsContainer.appendChild(dot);
         }
     }
-
-    // Update slider position
-    function setSliderPosition() {
-        const sliderWidth = slider.offsetWidth;
-        slider.style.transform = `translateX(-${currentTourIndex * sliderWidth}px)`;
+    
+    function setSliderPosition(animate = true) {
+        const sliderWidth = slider.parentElement.offsetWidth;
+        const offset = -currentTourIndex * sliderWidth;
+        
+        slider.style.transition = animate ? 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)' : 'none';
+        slider.style.transform = `translateX(${offset}px)`;
         updateButtons();
         updateDots();
     }
-
-    // Update button states
+    
     function updateButtons() {
         prevBtn.disabled = currentTourIndex === 0;
         nextBtn.disabled = currentTourIndex >= tourCount - 1;
+        prevBtn.style.opacity = currentTourIndex === 0 ? '0.5' : '1';
+        nextBtn.style.opacity = currentTourIndex >= tourCount - 1 ? '0.5' : '1';
     }
-
-    // Update active dot
+    
     function updateDots() {
         const dots = dotsContainer.querySelectorAll('.tour-slider-dot');
         dots.forEach((dot, index) => {
             dot.classList.toggle('active', index === currentTourIndex);
         });
     }
-
-    // Go to specific tour
+    
     function goToTour(index) {
+        if (index < 0 || index >= tourCount) return;
         currentTourIndex = index;
-        setSliderPosition();
+        setSliderPosition(true);
     }
-
-    // Next tour
+    
     function nextTour() {
         if (currentTourIndex < tourCount - 1) {
             currentTourIndex++;
-            setSliderPosition();
+            setSliderPosition(true);
         }
     }
-
-    // Previous tour
+    
     function prevTour() {
         if (currentTourIndex > 0) {
             currentTourIndex--;
-            setSliderPosition();
+            setSliderPosition(true);
         }
     }
-
-    // Touch and mouse events for dragging
-    function touchStart(e) {
-        isDragging = true;
-        startPos = getPositionX(e);
-        animationID = requestAnimationFrame(animation);
-        slider.style.cursor = 'grabbing';
-        slider.style.transition = 'none';
-    }
-
-    function touchMove(e) {
-        if (!isDragging) return;
-        const currentPosition = getPositionX(e);
-        currentTranslate = prevTranslate + currentPosition - startPos;
-    }
-
-    function touchEnd() {
-        cancelAnimationFrame(animationID);
-        isDragging = false;
-        slider.style.cursor = 'grab';
-        const movedBy = currentTranslate - prevTranslate;
-        const sliderWidth = slider.offsetWidth;
-        // If moved enough, change slide
-        if (movedBy < -sliderWidth / 4 && currentTourIndex < tourCount - 1) {
-            currentTourIndex++;
-        } else if (movedBy > sliderWidth / 4 && currentTourIndex > 0) {
-            currentTourIndex--;
-        }
-        setSliderPosition();
-        slider.style.transition = 'transform 0.5s cubic-bezier(0.4, 0, 0.2, 1)';
-        currentTranslate = -currentTourIndex * sliderWidth;
-        prevTranslate = currentTranslate;
-    }
-
+    
     function getPositionX(e) {
         return e.type.includes('mouse') ? e.pageX : e.touches[0].clientX;
     }
-
-    function animation() {
-        setSliderPosition();
-        if (isDragging) requestAnimationFrame(animation);
+    
+    function touchStart(e) {
+        isDragging = true;
+        startPos = getPositionX(e);
+        startTime = Date.now();
+        slider.style.cursor = 'grabbing';
+        slider.style.transition = 'none';
     }
-
-    // Event listeners
+    
+    function touchMove(e) {
+        if (!isDragging) return;
+        const currentPosition = getPositionX(e);
+        const diff = currentPosition - startPos;
+        const sliderWidth = slider.parentElement.offsetWidth;
+        let translate = -currentTourIndex * sliderWidth + diff;
+        
+        if (currentTourIndex === 0 && diff > 0) {
+            translate = -currentTourIndex * sliderWidth + diff * 0.3;
+        } else if (currentTourIndex === tourCount - 1 && diff < 0) {
+            translate = -currentTourIndex * sliderWidth + diff * 0.3;
+        }
+        
+        slider.style.transform = `translateX(${translate}px)`;
+    }
+    
+    function touchEnd() {
+        if (!isDragging) return;
+        isDragging = false;
+        slider.style.cursor = 'grab';
+        
+        const currentPosition = getPositionX(event);
+        const movedBy = currentPosition - startPos;
+        const sliderWidth = slider.parentElement.offsetWidth;
+        const threshold = sliderWidth * 0.2;
+        
+        if (Math.abs(movedBy) > threshold) {
+            if (movedBy < 0 && currentTourIndex < tourCount - 1) {
+                currentTourIndex++;
+            } else if (movedBy > 0 && currentTourIndex > 0) {
+                currentTourIndex--;
+            }
+        }
+        
+        setSliderPosition(true);
+    }
+    
     prevBtn.addEventListener('click', prevTour);
     nextBtn.addEventListener('click', nextTour);
-    // Mouse events
     slider.addEventListener('mousedown', touchStart);
     slider.addEventListener('mousemove', touchMove);
     slider.addEventListener('mouseup', touchEnd);
-    slider.addEventListener('mouseleave', touchEnd);
-    // Touch events
-    slider.addEventListener('touchstart', touchStart);
-    slider.addEventListener('touchmove', touchMove);
+    slider.addEventListener('mouseleave', () => { if (isDragging) touchEnd(); });
+    slider.addEventListener('touchstart', touchStart, { passive: true });
+    slider.addEventListener('touchmove', touchMove, { passive: true });
     slider.addEventListener('touchend', touchEnd);
-    // Keyboard navigation
-    slider.addEventListener('keydown', (e) => {
-        if (e.key === 'ArrowLeft') prevTour();
-        if (e.key === 'ArrowRight') nextTour();
-    });
-
-    // Handle window resize
+    
     window.addEventListener('resize', () => {
-        setSliderPosition();
-        createDots();
+        setTimeout(() => {
+            setSliderPosition(false);
+            createDots();
+        }, 100);
     });
-
-    // Initialize
+    
     createDots();
-    setSliderPosition();
-    // Make tour containers focusable for keyboard navigation
-    document.querySelectorAll('.explorer-container').forEach(container => {
-        container.setAttribute('tabindex', '0');
-    });
+    setSliderPosition(false);
 }
 
 // Island explorer interaction
