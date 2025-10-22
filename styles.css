@@ -1247,6 +1247,12 @@ section {
     transform: translateY(30px);
     transition: all 0.6s ease;
     border: 1px solid var(--border-light);
+    position: relative;
+      overflow: hidden;
+}
+.contact-form {
+  transform: none !important;
+  transition: none !important;
 }
 .contact-section.visible {
     opacity: 1;
@@ -2286,4 +2292,5 @@ img.loaded {
 .explorer-container + .explorer-container {
     margin-left: 0 !important;
 }
+
 
